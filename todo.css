@@ -1,0 +1,420 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#main-heading {
+  text-align: center;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin: 20px 0 30px 0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
+/* Main Split Container - Horizontal Division */
+.main-split-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Left Section - Active Tasks */
+.left-section,
+.right-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-section:hover,
+.right-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #667eea;
+}
+
+.section-header h2 {
+  color: #333;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+.task-count {
+  background: #667eea;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Input Area */
+.input-area {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  margin-bottom: 25px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.todoinput,
+.date-input {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.todoinput:hover,
+.date-input:hover {
+  transform: translateY(-2px);
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.todoinput:focus,
+.date-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+  transform: translateY(-1px);
+}
+
+.date-input {
+  text-align: center;
+}
+
+/* Add Button */
+.add-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.add-button:active {
+  transform: translateY(0);
+}
+
+/* Todo Container - Active Tasks */
+.todo-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 5px;
+}
+
+/* History Container */
+.history-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 5px;
+}
+
+/* Individual Task Items */
+.todo-item,
+.history-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.todo-item:hover,
+.history-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #667eea;
+}
+
+/* Task Content */
+.task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  word-break: break-word;
+}
+
+.task-date {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.task-date::before {
+  content: "📅";
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.complete-btn,
+.delete-btn,
+.restore-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.complete-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.complete-btn:hover {
+  background-color: #34ce57;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #ff4757;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.restore-btn {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.restore-btn:hover {
+  background-color: #ffcd39;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+/* Clear History Button */
+.clear-history-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.clear-history-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+  background: linear-gradient(135deg, #c82333 0%, #dc3545 100%);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #999;
+}
+
+.empty-state p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.empty-state p:first-child {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* Scrollbar Styling */
+.todo-container::-webkit-scrollbar,
+.history-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todo-container::-webkit-scrollbar-track,
+.history-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.todo-container::-webkit-scrollbar-thumb,
+.history-container::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+.todo-container::-webkit-scrollbar-thumb:hover,
+.history-container::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet Devices */
+@media (max-width: 768px) {
+  .main-split-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .input-area {
+    grid-template-columns: 1fr;
+  }
+  
+  .todo-item,
+  .history-item {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .task-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .complete-btn,
+  .delete-btn,
+  .restore-btn {
+    flex: 1;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .left-section,
+  .right-section {
+    padding: 15px;
+  }
+  
+  .task-text {
+    font-size: 14px;
+  }
+  
+  .complete-btn,
+  .delete-btn,
+  .restore-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+  .main-split-container {
+    max-width: 1600px;
+    gap: 30px;
+  }
+  
+  .todoinput,
+  .date-input {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .add-button {
+    font-size: 18px;
+    padding: 14px 24px;
+  }
+}
+
+/* Animation for new items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

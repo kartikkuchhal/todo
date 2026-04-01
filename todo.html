@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <link rel="stylesheet" href="todo.css">
+  <title>Todo App - Task Manager</title>
+</head>
+<body>
+
+  <h1 id="main-heading">📝write Todo work</h1>
+
+  <!-- Main Container with Two Columns -->
+  <div class="main-split-container">
+    
+    <!-- Left Section - Active Tasks -->
+    <div class="left-section">
+      <div class="section-header">
+        <h2>✅ Active Tasks</h2>
+        <span class="task-count" id="active-count">0</span>
+      </div>
+      
+      <!-- Input Area -->
+      <div class="input-area">
+        <input class="todoinput" type="text" placeholder="Enter todo work...">
+        <input class="date-input" type="date" placeholder="Select date">
+        <button class="add-button" onclick="addTodo()">➕ Add Task</button>
+      </div>
+
+      <!-- Active Tasks Container -->
+      <div class="todo-container" id="todo-container"></div>
+    </div>
+
+    <!-- Right Section - History/Completed Tasks -->
+    <div class="right-section">
+      <div class="section-header">
+        <h2>📜 Task History</h2>
+        <span class="task-count" id="history-count">0</span>
+      </div>
+      
+      <!-- History/Completed Tasks Container -->
+      <div class="history-container" id="history-container">
+        <div class="empty-state">
+          <p>✨ No completed tasks yet</p>
+          <p>Complete tasks to see them here!</p>
+        </div>
+      </div>
+      
+      <!-- Clear History Button -->
+      <button class="clear-history-btn" onclick="clearHistory()">🗑️ Clear All History</button>
+    </div>
+    
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
